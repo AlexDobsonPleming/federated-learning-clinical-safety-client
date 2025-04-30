@@ -3,6 +3,6 @@ export type Model = {
   name: string;
   accuracy: number;
   precision: number;
-  crossValidation: number;
+  cross_validation: number;
   security: number;
 };

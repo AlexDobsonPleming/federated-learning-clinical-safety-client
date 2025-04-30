@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { SimpleGrid, Container, Stack, Title } from '@mantine/core';
 import { ModelCard } from '../ModelCard/ModelCard';
 

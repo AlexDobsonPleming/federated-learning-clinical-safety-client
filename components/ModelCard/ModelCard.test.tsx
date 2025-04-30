@@ -8,7 +8,7 @@ type Model = {
   name: string;
   accuracy: number;
   precision: number;
-  crossValidation: number;
+  cross_validation: number;
   security: number;
 };
 
@@ -17,7 +17,7 @@ const mockModel: Model = {
   name: 'Test Model',
   accuracy: 0.95,
   precision: 0.9,
-  crossValidation: 0.92,
+  cross_validation: 0.92,
   security: 0.85,
 };
 

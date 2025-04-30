@@ -1,7 +1,7 @@
 'use client';
 
 import { IconBrain } from '@tabler/icons-react';
-import { Card, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Card, Stack, ThemeIcon, Title } from '@mantine/core';
 import { Model } from '@/components/ModelCard/Model';
 import { MetricLine } from './MetricLine';
 
@@ -18,7 +18,7 @@ export function ModelCard({ model }: { model: Model }) {
       <Stack gap="xs">
         <MetricLine label="Accuracy" value={model.accuracy} />
         <MetricLine label="Precision" value={model.precision} />
-        <MetricLine label="Cross-Validation" value={model.crossValidation} />
+        <MetricLine label="Cross-Validation" value={model.cross_validation} />
         <MetricLine label="Security" value={model.security} />
       </Stack>
     </Card>

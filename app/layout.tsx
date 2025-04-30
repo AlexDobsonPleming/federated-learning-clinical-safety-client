@@ -1,8 +1,9 @@
 import '@mantine/core/styles.css';
 import React from 'react';
 import { ColorSchemeScript, MantineProvider, mantineHtmlProps } from '@mantine/core';
-import { theme } from '../theme';
+import { theme } from '@/theme';
 import ClientShell from '../components/ClientShell/ClientShell';
+import { AuthProvider } from '@/hooks/useAuth';
 
 export const metadata = {
   title: 'Federated Learning Clinical Safety',
@@ -21,7 +22,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </head>
     <body>
       <MantineProvider theme={theme} >
-        <ClientShell>{children}</ClientShell>
+        <AuthProvider>
+          <ClientShell>
+            {children}
+          </ClientShell>
+        </AuthProvider>
       </MantineProvider>
     </body>
     </html>

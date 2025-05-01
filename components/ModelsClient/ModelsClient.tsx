@@ -2,7 +2,7 @@
 'use client';
 
 import { useCheckToken } from '@/hooks/useCheckToken';
-import { useModels } from '@/hooks/useFlModels';
+import { useModels } from '@/hooks/useModels';
 import { ModelGrid } from '../ModelGrid/ModelGrid';
 import { Model } from '@/components/ModelCard/Model';
 

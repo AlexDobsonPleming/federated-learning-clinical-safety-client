@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Container, Stack, Title, Table } from '@mantine/core';
+import { Container, Stack, Title, Table, Text } from '@mantine/core';
 import { Model } from '@/components/ModelCard/Model';
 
 export function ModelTable({ models }: { models: Model[] }) {
@@ -27,8 +27,7 @@ export function ModelTable({ models }: { models: Model[] }) {
                         <Table.Tr>
                             <Table.Th>Name</Table.Th>
                             <Table.Th>Accuracy</Table.Th>
-                            <Table.Th>Precision</Table.Th>
-                            <Table.Th>Cross-Validation</Table.Th>
+                            <Table.Th>Generalisability</Table.Th>
                             <Table.Th>Security</Table.Th>
                         </Table.Tr>
                     </Table.Thead>
@@ -42,9 +41,12 @@ export function ModelTable({ models }: { models: Model[] }) {
                             >
                                 <Table.Td>{model.name}</Table.Td>
                                 <Table.Td>{(model.accuracy * 100).toFixed(1)}%</Table.Td>
-                                <Table.Td>{(model.precision * 100).toFixed(1)}%</Table.Td>
-                                <Table.Td>{(model.cross_validation * 100).toFixed(1)}%</Table.Td>
-                                <Table.Td>{(model.security * 100).toFixed(1)}%</Table.Td>
+                                <Table.Td>{(model.generalisability * 100).toFixed(1)}%</Table.Td>
+                                <Table.Td>
+                                    {model.security != null
+                                        ? `${(model.security * 100).toFixed(1)}%`
+                                        : 'N/A'}
+                                </Table.Td>
                             </Table.Tr>
                         ))}
                     </Table.Tbody>

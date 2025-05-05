@@ -1,8 +1,8 @@
+// components/ModelCard/Model.ts
 export type Model = {
   id: number;
   name: string;
   accuracy: number;
-  precision: number;
-  cross_validation: number;
-  security: number;
+  generalisability: number;
+  security: number | null;
 };

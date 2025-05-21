@@ -31,6 +31,8 @@ This is the React front-end for the Federated Learning Clinical Safety Server, b
 
 ## Prerequisites
 
+A server running as described in the [dashboard server repository](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-server).
+
 Before you begin, ensure you have installed:
 
 * Node.js> = 16.8.0
@@ -65,6 +67,12 @@ NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api
 
 Adjust the URL to match your backend deployment.
 
+A sample env file has been provided to match the default settings in the Django backend
+
+```bash
+cp .env.example .env.local
+```
+
 ---
 
 ## Running the Client
@@ -72,8 +80,6 @@ Adjust the URL to match your backend deployment.
 Start the development server:
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 
@@ -106,18 +112,3 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The client 
 * `storybook:build` — build Storybook static files to `storybook-static`
 
 ---
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repo
-2. Create a feature branch
-3. Commit your changes
-4. Open a pull request
-
----
-
-## License
-
-This project is licensed under the MIT License. See the LICENSE file for details.

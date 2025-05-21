@@ -1,7 +1,6 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
-
 const fetcher = async ([url, token]: [string, string]) => {
   const res = await axios.get(url, {
     headers: { Authorization: `Token ${token}` },

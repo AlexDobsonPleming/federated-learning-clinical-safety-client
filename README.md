@@ -4,8 +4,6 @@ This is the React front-end for the Federated Learning Clinical Safety Server, b
 
 ---
 
-
-
 ## Prerequisites
 
 A server running as described in the [dashboard server repository](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-server).

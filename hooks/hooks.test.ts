@@ -1,5 +1,3 @@
-process.env.NEXT_PUBLIC_API_BASE_URL = 'http://test-api';
-
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { act, renderHook } from '@testing-library/react';
@@ -10,6 +8,8 @@ import { AuthProvider, useAuth } from '@/hooks/useAuth';
 import { useCheckToken } from '@/hooks/useCheckToken';
 import { useLocalModels } from '@/hooks/useLocalModels';
 import { useModel, useModels } from '@/hooks/useModels';
+
+process.env.NEXT_PUBLIC_API_BASE_URL = 'http://test-api';
 
 // Ensure our env var is set
 process.env.NEXT_PUBLIC_API_BASE_URL = 'http://test-api';

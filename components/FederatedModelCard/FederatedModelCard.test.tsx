@@ -2,8 +2,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
-import { FederatedModelCard } from './FederatedModelCard';
 import { FederatedModel } from './FederatedModel';
+import { FederatedModelCard } from './FederatedModelCard';
 
 const mockModel: FederatedModel = {
   id: 1,
@@ -20,8 +20,7 @@ function renderWithProviders(ui: React.ReactElement) {
 describe('FederatedModelCard component', () => {
   test('renders model name', () => {
     renderWithProviders(<FederatedModelCard model={mockModel} />);
-    expect(screen.getByRole('heading', { level: 4 }))
-      .toHaveTextContent('Test Model');
+    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent('Test Model');
   });
 
   test('renders the three metric lines', () => {

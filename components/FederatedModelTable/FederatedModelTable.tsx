@@ -11,11 +11,8 @@ export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
     <Container size="xl" py="lg">
       <Stack gap="xl">
         <Center mt="xl">
-          <Title order={2}>
-            Federated Models
-          </Title>
+          <Title order={2}>Federated Models</Title>
         </Center>
-
 
         <Table
           highlightOnHover

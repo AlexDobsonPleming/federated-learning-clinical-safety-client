@@ -3,7 +3,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
 
-
 type AuthContextType = {
   token: string | null;
   login: (username: string, password: string) => Promise<void>;

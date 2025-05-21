@@ -1,4 +1,5 @@
-// tests/hooks.test.tsx
+process.env.NEXT_PUBLIC_API_BASE_URL = 'http://test-api';
+
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { act, renderHook } from '@testing-library/react';

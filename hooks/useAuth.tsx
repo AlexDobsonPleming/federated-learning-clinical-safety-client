@@ -2,6 +2,7 @@
 
 import { useState, useEffect, createContext, useContext } from 'react';
 import axios from 'axios';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 type AuthContextType = {
   token: string | null;
@@ -23,7 +24,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [token]);
 
   const login = async (username: string, password: string) => {
-    const res = await axios.post('http://127.0.0.1:8000/api/auth/token/', { username, password });
+    const res = await axios.post(`${API_BASE}/auth/token/`, { username, password });
     setToken(res.data.token);
   };
 

@@ -1,5 +1,7 @@
 import useSWR from 'swr';
 import axios from 'axios';
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
 
 const fetcher = async ([url, token]: [string, string]) => {
   const res = await axios.get(url, {
@@ -14,7 +16,7 @@ const fetcher = async ([url, token]: [string, string]) => {
 export function useLocalModels(token: string, modelId?: number) {
   const key =
     token && modelId != null
-      ? [`http://127.0.0.1:8000/api/models/${modelId}/locals/`, token]
+      ? [`${API_BASE}/models/${modelId}/locals/`, token]
       : null;
 
   return useSWR(key, fetcher);

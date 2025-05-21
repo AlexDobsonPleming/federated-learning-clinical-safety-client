@@ -1,7 +1,7 @@
-import useSWR from 'swr';
 import axios from 'axios';
-const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+import useSWR from 'swr';
 
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 const fetcher = async ([url, token]: [string, string]) => {
   const res = await axios.get(url, {
@@ -14,10 +14,7 @@ const fetcher = async ([url, token]: [string, string]) => {
  * Fetch all LocalModel children for a given federated model.
  */
 export function useLocalModels(token: string, modelId?: number) {
-  const key =
-    token && modelId != null
-      ? [`${API_BASE}/models/${modelId}/locals/`, token]
-      : null;
+  const key = token && modelId != null ? [`${API_BASE}/models/${modelId}/locals/`, token] : null;
 
   return useSWR(key, fetcher);
 }

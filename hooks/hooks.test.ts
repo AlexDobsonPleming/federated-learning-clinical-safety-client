@@ -1,9 +1,14 @@
 // tests/hooks.test.tsx
 import React from 'react';
-import { renderHook, act } from '@testing-library/react';
+import { useRouter } from 'next/navigation';
+import { act, renderHook } from '@testing-library/react';
 import axios from 'axios';
 import useSWR from 'swr';
-import { useRouter } from 'next/navigation';
+// Import your hooks & provider *after* mocks
+import { AuthProvider, useAuth } from '@/hooks/useAuth';
+import { useCheckToken } from '@/hooks/useCheckToken';
+import { useLocalModels } from '@/hooks/useLocalModels';
+import { useModel, useModels } from '@/hooks/useModels';
 
 // Ensure our env var is set
 process.env.NEXT_PUBLIC_API_BASE_URL = 'http://test-api';
@@ -19,12 +24,6 @@ jest.mock('next/navigation', () => ({
   useRouter: jest.fn(),
 }));
 const mockedUseRouter = useRouter as jest.Mock;
-
-// Import your hooks & provider *after* mocks
-import { AuthProvider, useAuth } from '@/hooks/useAuth';
-import { useCheckToken } from '@/hooks/useCheckToken';
-import { useModels, useModel } from '@/hooks/useModels';
-import { useLocalModels } from '@/hooks/useLocalModels';
 
 describe('AuthProvider & useAuth', () => {
   beforeEach(() => {

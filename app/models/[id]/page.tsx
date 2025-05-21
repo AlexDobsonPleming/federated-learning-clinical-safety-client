@@ -1,13 +1,13 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { useCheckToken } from '@/hooks/useCheckToken';
-import { useModel } from '@/hooks/useModels';
-import { useLocalModels } from '@/hooks/useLocalModels';
+import { useParams, useRouter } from 'next/navigation';
+import { Text } from '@mantine/core';
 import { FederatedModelCard } from '@/components/FederatedModelCard/FederatedModelCard';
 import { LocalModelTable } from '@/components/LocalModelTable/LocalModelTable';
-import { Text } from '@mantine/core';
+import { useCheckToken } from '@/hooks/useCheckToken';
+import { useLocalModels } from '@/hooks/useLocalModels';
+import { useModel } from '@/hooks/useModels';
 
 export default function FederatedModelPage() {
   const router = useRouter();
@@ -17,8 +17,7 @@ export default function FederatedModelPage() {
 
   const modelId = id ? parseInt(id, 10) : undefined;
 
-  const { data: model, error, isValidating: isLoading } =
-    useModel(token, modelId!);
+  const { data: model, error, isValidating: isLoading } = useModel(token, modelId!);
 
   const {
     data: locals,
@@ -31,13 +30,7 @@ export default function FederatedModelPage() {
   }, []);
 
   useEffect(() => {
-    if (
-      mounted &&
-      token &&
-      modelId != null &&
-      !isLoading &&
-      !model
-    ) {
+    if (mounted && token && modelId != null && !isLoading && !model) {
       router.replace('/404');
     }
   }, [mounted, token, modelId, isLoading, model, router]);

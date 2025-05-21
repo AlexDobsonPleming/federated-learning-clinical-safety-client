@@ -1,26 +1,31 @@
 'use client';
 
 import React from 'react';
+import { IconBrain, IconChevronDown } from '@tabler/icons-react';
 import {
   AppShell,
+  Avatar,
   Container,
   Group,
-  ThemeIcon,
-  Text,
   Menu,
+  Text,
+  ThemeIcon,
   UnstyledButton,
-  Avatar,
 } from '@mantine/core';
-import { IconBrain, IconChevronDown } from '@tabler/icons-react';
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   return (
-    <AppShell
-      padding="md"
-      header={{ height: 60 }}
-    >
+    <AppShell padding="md" header={{ height: 60 }}>
       <AppShell.Header>
-        <Container size="xl" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '100%' }}>
+        <Container
+          size="xl"
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            height: '100%',
+          }}
+        >
           <Group gap="sm">
             <ThemeIcon size="lg" radius="md" variant="light">
               <IconBrain size={20} />
@@ -29,7 +34,11 @@ export default function ClientShell({ children }: { children: React.ReactNode })
               AI.Care-Fed - Clinical Safety Dashboard
             </Text>
           </Group>
-          <Menu withArrow position="bottom-end" transitionProps={{ transition: 'pop-top-right', duration: 150 }}>
+          <Menu
+            withArrow
+            position="bottom-end"
+            transitionProps={{ transition: 'pop-top-right', duration: 150 }}
+          >
             <Menu.Target>
               <UnstyledButton>
                 <Group gap="xs">
@@ -48,9 +57,7 @@ export default function ClientShell({ children }: { children: React.ReactNode })
         </Container>
       </AppShell.Header>
 
-      <AppShell.Main>
-        {children}
-      </AppShell.Main>
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   );
 }

@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useState, useEffect, createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import axios from 'axios';
+
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 type AuthContextType = {
@@ -19,8 +20,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => {
     // whenever token changes, sync to localStorage
-    if (token) {localStorage.setItem('token', token);}
-    else {localStorage.removeItem('token');}
+    if (token) {
+      localStorage.setItem('token', token);
+    } else {
+      localStorage.removeItem('token');
+    }
   }, [token]);
 
   const login = async (username: string, password: string) => {
@@ -32,11 +36,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setToken(null);
   };
 
-  return (
-    <AuthContext.Provider value={{ token, login, logout }}>
-      {children}
-    </AuthContext.Provider>
-);
+  return <AuthContext.Provider value={{ token, login, logout }}>{children}</AuthContext.Provider>;
 }
 
 export function useAuth() {

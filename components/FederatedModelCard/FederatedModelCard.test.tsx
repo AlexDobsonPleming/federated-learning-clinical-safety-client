@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
 import { FederatedModelCard } from './FederatedModelCard';
 
-
 const mockModel: Model = {
   id: 1,
   name: 'Test Model',
@@ -14,11 +13,7 @@ const mockModel: Model = {
 };
 
 function renderWithProviders(ui: React.ReactElement) {
-  return render(
-    <MantineProvider>
-      {ui}
-    </MantineProvider>
-  );
+  return render(<MantineProvider>{ui}</MantineProvider>);
 }
 
 describe('FederatedModelCard component', () => {
@@ -31,12 +26,9 @@ describe('FederatedModelCard component', () => {
     renderWithProviders(<FederatedModelCard model={mockModel} />);
     expect(screen.getByTestId('metric-accuracy')).toBeInTheDocument();
     expect(screen.getByTestId('metric-precision')).toBeInTheDocument();
-    expect(
-      screen.getByTestId('metric-cross-validation')
-    ).toBeInTheDocument();
+    expect(screen.getByTestId('metric-cross-validation')).toBeInTheDocument();
     expect(screen.getByTestId('metric-security')).toBeInTheDocument();
   });
-
 
   test('renders an icon (svg)', () => {
     const { container } = renderWithProviders(<FederatedModelCard model={mockModel} />);

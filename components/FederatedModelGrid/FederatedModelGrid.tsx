@@ -1,5 +1,6 @@
-"use client";
-import { SimpleGrid, Container, Stack, Title } from '@mantine/core';
+'use client';
+
+import { Container, SimpleGrid, Stack, Title } from '@mantine/core';
 import { FederatedModelCard } from '@/components/FederatedModelCard/FederatedModelCard';
 
 type Model = React.ComponentProps<typeof FederatedModelCard>['model'];

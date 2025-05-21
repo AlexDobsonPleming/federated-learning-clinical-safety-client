@@ -1,6 +1,6 @@
 'use client';
 
-import { Table, Container, Stack, Title, Text } from '@mantine/core';
+import { Container, Stack, Table, Text, Title } from '@mantine/core';
 import { LocalModel } from './LocalModel';
 
 export function LocalModelTable({ locals }: { locals: LocalModel[] }) {
@@ -22,7 +22,9 @@ export function LocalModelTable({ locals }: { locals: LocalModel[] }) {
         >
           <Table.Thead>
             <Table.Tr>
-              <Table.Th>Name</Table.Th><Table.Th>Source</Table.Th><Table.Th>Relatability</Table.Th>
+              <Table.Th>Name</Table.Th>
+              <Table.Th>Source</Table.Th>
+              <Table.Th>Relatability</Table.Th>
             </Table.Tr>
           </Table.Thead>
 
@@ -32,11 +34,12 @@ export function LocalModelTable({ locals }: { locals: LocalModel[] }) {
                 <Table.Td>{lm.name}</Table.Td>
                 <Table.Td>{lm.source}</Table.Td>
                 <Table.Td>
-                {typeof lm.relatability === 'number'
-                  ? `${(lm.relatability * 100).toFixed(1)}%`
-                  : <Text size="sm">N/A</Text>}
-              </Table.Td>
-
+                  {typeof lm.relatability === 'number' ? (
+                    `${(lm.relatability * 100).toFixed(1)}%`
+                  ) : (
+                    <Text size="sm">N/A</Text>
+                  )}
+                </Table.Td>
               </Table.Tr>
             ))}
           </Table.Tbody>

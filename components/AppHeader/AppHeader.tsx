@@ -1,16 +1,16 @@
 'use client';
 
+import { IconBrain, IconChevronDown } from '@tabler/icons-react';
 import {
+  Avatar,
   Box,
   Container,
   Group,
-  Text,
   Menu,
+  Text,
+  ThemeIcon,
   UnstyledButton,
-  Avatar,
-  ThemeIcon
 } from '@mantine/core';
-import { IconBrain, IconChevronDown } from '@tabler/icons-react';
 
 export default function AppHeader() {
   return (
@@ -33,7 +33,11 @@ export default function AppHeader() {
           </Text>
         </Group>
 
-        <Menu withArrow position="bottom-end" transitionProps={{ transition: 'pop-top-right', duration: 200 }}>
+        <Menu
+          withArrow
+          position="bottom-end"
+          transitionProps={{ transition: 'pop-top-right', duration: 200 }}
+        >
           <Menu.Target>
             <UnstyledButton>
               <Group gap="xs">

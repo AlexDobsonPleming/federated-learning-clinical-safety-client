@@ -2,19 +2,19 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '@/hooks/useAuth';
+import { IconAlertCircle } from '@tabler/icons-react';
 import {
-  Paper,
-  TextInput,
-  PasswordInput,
+  Alert,
   Button,
+  Center,
+  Paper,
+  PasswordInput,
   Stack,
   Text,
+  TextInput,
   Title,
-  Center,
-  Alert,
 } from '@mantine/core';
-import { IconAlertCircle } from '@tabler/icons-react';
+import { useAuth } from '@/hooks/useAuth';
 
 export default function LoginPage() {
   const [username, setUsername] = useState('');
@@ -73,7 +73,10 @@ export default function LoginPage() {
           </form>
 
           <Text size="sm" ta="center" color="dimmed">
-            Don’t have an account? <Text component="a" href="/register" variant="link">Register here</Text>
+            Don’t have an account?{' '}
+            <Text component="a" href="/register" variant="link">
+              Register here
+            </Text>
           </Text>
         </Stack>
       </Paper>

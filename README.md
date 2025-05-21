@@ -6,26 +6,26 @@ This is the React front-end for the Federated Learning Clinical Safety Server, b
 
 ## Table of Contents
 
-* Features
-* Prerequisites
-* Setup & Installation
-* Environment Variables
-* Running the Client
-* npm Scripts
-* Contributing
-* License
+- Features
+- Prerequisites
+- Setup & Installation
+- Environment Variables
+- Running the Client
+- npm Scripts
+- Contributing
+- License
 
 ---
 
 ## Features
 
-* Next.js App Router
-* Mantine component library
-* TypeScript
-* PostCSS with mantine-postcss-preset
-* Storybook for UI development
-* Jest with React Testing Library for unit tests
-* ESLint with eslint-config-mantine
+- Next.js App Router
+- Mantine component library
+- TypeScript
+- PostCSS with mantine-postcss-preset
+- Storybook for UI development
+- Jest with React Testing Library for unit tests
+- ESLint with eslint-config-mantine
 
 ---
 
@@ -35,8 +35,8 @@ A server running as described in the [dashboard server repository](https://githu
 
 Before you begin, ensure you have installed:
 
-* Node.js> = 16.8.0
-* yarn
+- Node.js> = 16.8.0
+- yarn
 
 ---
 
@@ -91,24 +91,24 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The client 
 
 ### Development & Build
 
-* `dev` — start the Next.js dev server
-* `build` — build the application for production
-* `start` — run the production build
-* `analyze` — analyze bundle size with @next/bundle-analyzer
+- `dev` — start the Next.js dev server
+- `build` — build the application for production
+- `start` — run the production build
+- `analyze` — analyze bundle size with @next/bundle-analyzer
 
 ### Testing & Quality
 
-* `typecheck` — run TypeScript type checking
-* `lint` — run ESLint
-* `prettier:check` — check formatting with Prettier
-* `prettier:write` — format files with Prettier
-* `jest` — run Jest tests
-* `jest:watch` — run Jest in watch mode
-* `test` — run `jest`, `lint`, and `typecheck` sequentially
+- `typecheck` — run TypeScript type checking
+- `lint` — run ESLint
+- `prettier:check` — check formatting with Prettier
+- `prettier:write` — format files with Prettier
+- `jest` — run Jest tests
+- `jest:watch` — run Jest in watch mode
+- `test` — run `jest`, `lint`, and `typecheck` sequentially
 
 ### Storybook
 
-* `storybook` — start Storybook dev server
-* `storybook:build` — build Storybook static files to `storybook-static`
+- `storybook` — start Storybook dev server
+- `storybook:build` — build Storybook static files to `storybook-static`
 
 ---

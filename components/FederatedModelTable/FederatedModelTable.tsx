@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Center, Container, Stack, Table, Text, Title } from '@mantine/core';
+import { Center, Container, Stack, Table, Title } from '@mantine/core';
 import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 
 export function FederatedModelTable({ models }: { models: FederatedModel[] }) {

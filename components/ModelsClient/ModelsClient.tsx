@@ -9,7 +9,7 @@ type ModelsClientProps = {
   initialData: FederatedModel[];
 };
 
-export default function ModelsClient({ initialData }: ModelsClientProps) {
+export default function ModelsClient({ _initialData  }: ModelsClientProps) {
   const token = useCheckToken();
   if (!token) {
     return null;

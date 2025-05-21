@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Center, Text } from '@mantine/core';
+import { Center } from '@mantine/core';
 import { FederatedModelCard } from '@/components/FederatedModelCard/FederatedModelCard';
 import { LocalModelTable } from '@/components/LocalModelTable/LocalModelTable';
 import { useCheckToken } from '@/hooks/useCheckToken';
@@ -39,11 +39,21 @@ export default function FederatedModelPage() {
     }
   }, [mounted, token, modelId, isLoading, model, router]);
 
-  if (!mounted || !token) return null;
-  if (!modelId) return <div>Invalid model ID</div>;
-  if (isLoading) return <div>Loading…</div>;
-  if (error) return <div>Error loading model</div>;
-  if (!model) return null;
+  if (!mounted || !token) {
+    return null;
+  }
+  if (!modelId) {
+    return <div>Invalid model ID</div>;
+  }
+  if (isLoading) {
+    return <div>Loading…</div>;
+  }
+  if (error) {
+    return <div>Error loading model</div>;
+  }
+  if (!model) {
+    return null;
+  }
 
   return (
     <>

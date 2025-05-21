@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { FederatedModelGrid } from '@/components/FederatedModelGrid/FederatedModelGrid';
 import { FederatedModelTable } from '@/components/FederatedModelTable/FederatedModelTable';
 import { useCheckToken } from '@/hooks/useCheckToken';
 import { useModels } from '@/hooks/useModels';

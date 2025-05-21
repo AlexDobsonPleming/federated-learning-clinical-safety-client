@@ -1,33 +1,10 @@
 # Federated Learning Clinical Safety Dashboard Client
 
-This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js App Router and Mantine UI.
+This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js and Mantine UI.
 
 ---
 
-## Table of Contents
 
-- Features
-- Prerequisites
-- Setup & Installation
-- Environment Variables
-- Running the Client
-- npm Scripts
-- Contributing
-- License
-
----
-
-## Features
-
-- Next.js App Router
-- Mantine component library
-- TypeScript
-- PostCSS with mantine-postcss-preset
-- Storybook for UI development
-- Jest with React Testing Library for unit tests
-- ESLint with eslint-config-mantine
-
----
 
 ## Prerequisites
 
@@ -83,7 +60,7 @@ Start the development server:
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser. The client will communicate with the backend via the `NEXT_PUBLIC_API_BASE_URL`.
+Open [http://localhost:3000](http://localhost:3000) in your browser. The client will communicate with the backend via the `NEXT_PUBLIC_API_BASE_URL` (customise this for your production server).
 
 ---
 

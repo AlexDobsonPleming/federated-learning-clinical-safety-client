@@ -1,15 +1,19 @@
 'use client';
 
-import { Container, Stack, Table, Text, Title } from '@mantine/core';
+import { Center, Container, Stack, Table, Text, Title } from '@mantine/core';
 import { LocalModel } from './LocalModel';
+
 
 export function LocalModelTable({ locals }: { locals: LocalModel[] }) {
   return (
     <Container size="xl" py="lg">
-      <Stack spacing="xl">
-        <Title order={2} align="center">
-          Local Models
-        </Title>
+      <Stack gap="xl">
+        <Center>
+          <Title order={2}>
+            Local Models
+          </Title>
+        </Center>
+
 
         <Table
           highlightOnHover

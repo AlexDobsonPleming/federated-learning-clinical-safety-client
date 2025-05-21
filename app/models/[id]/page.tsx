@@ -2,12 +2,13 @@
 
 import { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { Text } from '@mantine/core';
+import { Center, Text } from '@mantine/core';
 import { FederatedModelCard } from '@/components/FederatedModelCard/FederatedModelCard';
 import { LocalModelTable } from '@/components/LocalModelTable/LocalModelTable';
 import { useCheckToken } from '@/hooks/useCheckToken';
 import { useLocalModels } from '@/hooks/useLocalModels';
 import { useModel } from '@/hooks/useModels';
+
 
 export default function FederatedModelPage() {
   const router = useRouter();
@@ -15,45 +16,41 @@ export default function FederatedModelPage() {
   const token = useCheckToken();
   const [mounted, setMounted] = useState(false);
 
-  const modelId = id ? parseInt(id, 10) : undefined;
+  // Normalize `id` to a single string
+  const rawId = Array.isArray(id) ? id[0] : id;
+  // Now rawId is either string or undefined
+  const modelId = rawId ? parseInt(rawId, 10) : undefined;
 
-  const { data: model, error, isValidating: isLoading } = useModel(token, modelId!);
+  const safeToken = token ?? '';
 
+  const { data: model, error, isValidating: isLoading } = useModel(safeToken, modelId);
   const {
     data: locals,
     error: localsError,
     isValidating: isLoadingLocals,
-  } = useLocalModels(token, modelId);
+  } = useLocalModels(safeToken, modelId);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (mounted && token && modelId != null && !isLoading && !model) {
+    if (
+      mounted &&
+      token &&
+      modelId != null &&
+      !isLoading &&
+      !model
+    ) {
       router.replace('/404');
     }
   }, [mounted, token, modelId, isLoading, model, router]);
 
-  if (!mounted || !token) {
-    return null;
-  }
-
-  if (!modelId) {
-    return <div>Invalid model ID</div>;
-  }
-
-  if (isLoading) {
-    return <div>Loading…</div>;
-  }
-
-  if (error) {
-    return <div>Error loading model</div>;
-  }
-
-  if (!model) {
-    return null;
-  }
+  if (!mounted || !token) return null;
+  if (!modelId)      return <div>Invalid model ID</div>;
+  if (isLoading)     return <div>Loading…</div>;
+  if (error)         return <div>Error loading model</div>;
+  if (!model)        return null;
 
   return (
     <>
@@ -66,9 +63,9 @@ export default function FederatedModelPage() {
       ) : locals && locals.length > 0 ? (
         <LocalModelTable locals={locals} />
       ) : (
-        <Text align="center" size="sm" mt="md">
+        <Center mt="md">
           No local models found.
-        </Text>
+        </Center>
       )}
     </>
   );

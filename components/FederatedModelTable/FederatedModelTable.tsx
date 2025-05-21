@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { Container, Stack, Table, Text, Title } from '@mantine/core';
+import { Center, Container, Stack, Table, Text, Title } from '@mantine/core';
 import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 
 export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
@@ -9,10 +9,13 @@ export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
 
   return (
     <Container size="xl" py="lg">
-      <Stack spacing="xl">
-        <Title order={2} align="center">
-          Federated Models
-        </Title>
+      <Stack gap="xl">
+        <Center mt="xl">
+          <Title order={2}>
+            Federated Models
+          </Title>
+        </Center>
+
 
         <Table
           highlightOnHover

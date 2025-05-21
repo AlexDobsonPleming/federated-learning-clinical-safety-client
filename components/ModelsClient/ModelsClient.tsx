@@ -15,7 +15,7 @@ export default function ModelsClient({ initialData }: ModelsClientProps) {
     return null;
   }
 
-  const { data: models, error } = useModels(token, initialData);
+  const { data: models, error } = useModels(token);
 
   if (error) {
     return <div>Failed to load metrics</div>;

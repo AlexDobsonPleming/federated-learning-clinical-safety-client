@@ -1,5 +1,7 @@
 # Federated Learning Clinical Safety Dashboard Client
 
+[![Tests](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-client/actions/workflows/npm_test.yml/badge.svg)](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-client/actions/workflows/npm_test.yml)
+
 This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js and Mantine UI.
 
 ---

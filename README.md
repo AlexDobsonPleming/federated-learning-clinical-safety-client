@@ -1,4 +1,4 @@
-# 🚀 Mantine Next.js Client
+# Federated Learning Clinical Safety Dashboard Client
 
 This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js App Router and Mantine UI.
 

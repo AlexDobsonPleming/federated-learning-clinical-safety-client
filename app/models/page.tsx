@@ -1,10 +1,10 @@
 "use client";
 
-import { ModelGrid } from '@/components/ModelGrid/ModelGrid';
+import { FederatedModelGrid } from '@/components/FederatedModelGrid/FederatedModelGrid';
 import { useModels} from "@/hooks/useModels";
 import { useCheckToken } from '@/hooks/useCheckToken';
 import { useEffect, useState } from 'react';
-import {ModelTable} from "@/components/ModelTable/ModelTable";
+import {FederatedModelTable} from "@/components/FederatedModelTable/FederatedModelTable";
 
 export default function HomePage() {
   const token = useCheckToken();
@@ -24,5 +24,5 @@ export default function HomePage() {
 
   if (error) { return <div>Failed to load metrics</div>; }
   if (!models) { return <div>Loading…</div>; }
-  return <ModelTable models={models} />;
+  return <FederatedModelTable models={models} />;
 }

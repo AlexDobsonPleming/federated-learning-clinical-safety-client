@@ -1,16 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
-import { ModelCard } from './ModelCard';
+import { FederatedModelCard } from './FederatedModelCard';
 
-type Model = {
-  id: number;
-  name: string;
-  accuracy: number;
-  precision: number;
-  cross_validation: number;
-  security: number;
-};
 
 const mockModel: Model = {
   id: 1,
@@ -29,14 +21,14 @@ function renderWithProviders(ui: React.ReactElement) {
   );
 }
 
-describe('ModelCard component', () => {
+describe('FederatedModelCard component', () => {
   test('renders model name', () => {
-    renderWithProviders(<ModelCard model={mockModel} />);
-    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent('Test Model');
+    renderWithProviders(<FederatedModelCard model={mockModel} />);
+    expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent('Test FederatedModel');
   });
 
   test('renders metric lines', () => {
-    renderWithProviders(<ModelCard model={mockModel} />);
+    renderWithProviders(<FederatedModelCard model={mockModel} />);
     expect(screen.getByTestId('metric-accuracy')).toBeInTheDocument();
     expect(screen.getByTestId('metric-precision')).toBeInTheDocument();
     expect(
@@ -47,7 +39,7 @@ describe('ModelCard component', () => {
 
 
   test('renders an icon (svg)', () => {
-    const { container } = renderWithProviders(<ModelCard model={mockModel} />);
+    const { container } = renderWithProviders(<FederatedModelCard model={mockModel} />);
     const svg = container.querySelector('svg');
     expect(svg).toBeInTheDocument();
   });

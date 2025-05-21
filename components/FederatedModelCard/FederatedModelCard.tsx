@@ -2,10 +2,10 @@
 
 import { IconBrain } from '@tabler/icons-react';
 import { Card, Stack, ThemeIcon, Title, Text } from '@mantine/core';
-import { Model } from '@/components/ModelCard/Model';
+import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 import { MetricLine } from './MetricLine';
 
-export function ModelCard({ model }: { model: Model }) {
+export function FederatedModelCard({ model }: { model: FederatedModel }) {
     return (
         <Card shadow="sm" radius="md" withBorder p="lg" style={{ textAlign: 'center' }}>
             <ThemeIcon size={60} variant="light" radius="xl" style={{ margin: '0 auto 1rem' }}>

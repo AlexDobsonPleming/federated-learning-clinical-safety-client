@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 import { Container, Stack, Title, Table, Text } from '@mantine/core';
-import { Model } from '@/components/ModelCard/Model';
+import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 
-export function ModelTable({ models }: { models: Model[] }) {
+export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
     const router = useRouter();
 
     return (

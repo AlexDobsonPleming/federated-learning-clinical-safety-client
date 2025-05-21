@@ -2,11 +2,11 @@
 
 import { useCheckToken } from '@/hooks/useCheckToken';
 import { useModels } from '@/hooks/useModels';
-import { ModelGrid } from '../ModelGrid/ModelGrid';
-import { Model } from '@/components/ModelCard/Model';
+import { FederatedModelGrid } from '@/components/FederatedModelGrid/FederatedModelGrid';
+import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 
 type ModelsClientProps = {
-  initialData: Model[];
+  initialData: FederatedModel[];
 };
 
 export default function ModelsClient({ initialData }: ModelsClientProps) {
@@ -19,5 +19,5 @@ export default function ModelsClient({ initialData }: ModelsClientProps) {
   if (error) {return <div>Failed to load metrics</div>;}
   if (!models) {return <div>Loading…</div>;}
 
-  return <ModelGrid models={models} />;
+  return <FederatedModelGrid models={models} />;
 }

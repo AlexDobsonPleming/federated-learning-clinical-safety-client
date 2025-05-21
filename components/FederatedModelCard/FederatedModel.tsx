@@ -1,5 +1,5 @@
-// components/ModelCard/Model.ts
-export type Model = {
+// components/FederatedModelCard/FederatedModel.ts
+export type FederatedModel = {
   id: number;
   name: string;
   accuracy: number;

@@ -6,7 +6,7 @@ import { useCheckToken } from '@/hooks/useCheckToken';
 import { useModels } from '@/hooks/useModels';
 
 type ModelsClientProps = {
-  initialData: FederatedModel[];
+  _initialData: FederatedModel[];
 };
 
 export default function ModelsClient({ _initialData  }: ModelsClientProps) {

@@ -21,16 +21,16 @@ export default function LoginPage() {
   const demoMode = process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
 
   // 2) grab the demo creds (or default to empty string)
-  const demoUsername = demoMode ? process.env.NEXT_PUBLIC_DEMO_USERNAME ?? '' : '';
-  const demoPassword = demoMode ? process.env.NEXT_PUBLIC_DEMO_PASSWORD ?? '' : '';
+  const demoUsername = demoMode ? (process.env.NEXT_PUBLIC_DEMO_USERNAME ?? '') : '';
+  const demoPassword = demoMode ? (process.env.NEXT_PUBLIC_DEMO_PASSWORD ?? '') : '';
 
   // 3) initialize your inputs with them if demoMode
   const [username, setUsername] = useState(demoUsername);
   const [password, setPassword] = useState(demoPassword);
-  const [error, setError]     = useState<string | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const { login } = useAuth();
-  const router    = useRouter();
+  const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -58,9 +58,9 @@ export default function ClientShell({ children }: { children: React.ReactNode })
               </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-              <Menu.Item onClick={() => router.push('/profile')}>Profile</Menu.Item>
-              <Menu.Item onClick={() => router.push('/settings')}>Settings</Menu.Item>
-              <Menu.Divider />
+              {/*<Menu.Item onClick={() => router.push('/profile')}>Profile</Menu.Item>*/}
+              {/*<Menu.Item onClick={() => router.push('/settings')}>Settings</Menu.Item>*/}
+              {/*<Menu.Divider />*/}
               <Menu.Item color="red" onClick={handleLogout}>
                 Log out
               </Menu.Item>

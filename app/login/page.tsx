@@ -17,18 +17,28 @@ import {
 import { useAuth } from '@/hooks/useAuth';
 
 export default function LoginPage() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null);
+  // 1) detect demo mode from your env flag
+  const demoMode = process.env.NEXT_PUBLIC_DEMO_MODE === 'true';
+
+  // 2) grab the demo creds (or default to empty string)
+  const demoUsername = demoMode ? process.env.NEXT_PUBLIC_DEMO_USERNAME ?? '' : '';
+  const demoPassword = demoMode ? process.env.NEXT_PUBLIC_DEMO_PASSWORD ?? '' : '';
+
+  // 3) initialize your inputs with them if demoMode
+  const [username, setUsername] = useState(demoUsername);
+  const [password, setPassword] = useState(demoPassword);
+  const [error, setError]     = useState<string | null>(null);
+
   const { login } = useAuth();
-  const router = useRouter();
+  const router    = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+
     try {
       await login(username, password);
-      router.push('/'); // redirect to home after login
+      router.push('/');
     } catch {
       setError('Invalid credentials');
     }
@@ -72,7 +82,7 @@ export default function LoginPage() {
             </Stack>
           </form>
 
-          <Text size="sm" ta="center" color="dimmed">
+          <Text size="sm" ta="center" c="dimmed">
             Don’t have an account?{' '}
             <Text component="a" href="/register" variant="link">
               Register here

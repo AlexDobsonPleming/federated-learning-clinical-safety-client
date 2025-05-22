@@ -12,8 +12,18 @@ import {
   ThemeIcon,
   UnstyledButton,
 } from '@mantine/core';
+import { useAuth } from '@/hooks/useAuth';
+import { useRouter } from 'next/navigation';
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
+  const { logout } = useAuth();
+  const router = useRouter();
+
+  const handleLogout = () => {
+    logout();              // clears token in state & localStorage
+    router.push('/login'); // or wherever your login page lives
+  };
+
   return (
     <AppShell padding="md" header={{ height: 60 }}>
       <AppShell.Header>
@@ -48,10 +58,12 @@ export default function ClientShell({ children }: { children: React.ReactNode })
               </UnstyledButton>
             </Menu.Target>
             <Menu.Dropdown>
-              <Menu.Item>Profile</Menu.Item>
-              <Menu.Item>Settings</Menu.Item>
+              <Menu.Item onClick={() => router.push('/profile')}>Profile</Menu.Item>
+              <Menu.Item onClick={() => router.push('/settings')}>Settings</Menu.Item>
               <Menu.Divider />
-              <Menu.Item color="red">Log out</Menu.Item>
+              <Menu.Item color="red" onClick={handleLogout}>
+                Log out
+              </Menu.Item>
             </Menu.Dropdown>
           </Menu>
         </Container>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useRouter } from 'next/navigation';
 import { IconBrain, IconChevronDown } from '@tabler/icons-react';
 import {
   AppShell,
@@ -13,14 +14,13 @@ import {
   UnstyledButton,
 } from '@mantine/core';
 import { useAuth } from '@/hooks/useAuth';
-import { useRouter } from 'next/navigation';
 
 export default function ClientShell({ children }: { children: React.ReactNode }) {
   const { logout } = useAuth();
   const router = useRouter();
 
   const handleLogout = () => {
-    logout();              // clears token in state & localStorage
+    logout(); // clears token in state & localStorage
     router.push('/login'); // or wherever your login page lives
   };
 

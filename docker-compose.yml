@@ -1,0 +1,17 @@
+services:
+  app:
+    # Use the official Node image matching your project's React/Next version
+    image: node:21
+    working_dir: /app
+    # Mount your code and preserve node_modules
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    ports:
+      - '3000:3000'
+    environment:
+      # Set for development
+      NODE_ENV: development
+      # Point your client to the external API server
+      NEXT_PUBLIC_API_BASE_URL: https://vht-dev.shef.ac.uk/api/
+    command: sh -c "yarn install --frozen-lockfile && yarn dev"

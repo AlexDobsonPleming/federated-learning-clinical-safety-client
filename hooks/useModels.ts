@@ -1,15 +1,15 @@
-import axios from 'axios';
 import useSWR from 'swr';
+import { createAuthClient } from '@/hooks/api';
 
 const fetcher = async ([url, token]: [string, string]) => {
-  const res = await axios.get(url, {
-    headers: { Authorization: `Token ${token}` },
-  });
+  const client = createAuthClient(token);
+  const res = await client.get(url);
   return res.data;
 };
 
 export function useModels(token: string) {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   return useSWR(token ? [`${base}/models/`, token] : null, fetcher);
 }
 

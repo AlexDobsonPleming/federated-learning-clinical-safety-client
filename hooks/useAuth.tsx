@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useEffect, useState } from 'react';
-import axios from 'axios';
+import { createBaseClient } from './api';
 
 type AuthContextType = {
   token: string | null;
@@ -27,7 +27,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const login = async (username: string, password: string) => {
     const base = process.env.NEXT_PUBLIC_API_BASE_URL;
-    const res = await axios.post(`${base}/auth/token/`, { username, password });
+    const client = createBaseClient();
+    const res = await client.post(`${base}/auth/token/`, { username, password });
     setToken(res.data.token);
   };
 

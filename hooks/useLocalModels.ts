@@ -1,10 +1,9 @@
-import axios from 'axios';
 import useSWR from 'swr';
+import { createAuthClient } from '@/hooks/api';
 
 const fetcher = async ([url, token]: [string, string]) => {
-  const res = await axios.get(url, {
-    headers: { Authorization: `Token ${token}` },
-  });
+  const client = createAuthClient(token);
+  const res = await client.get(url);
   return res.data;
 };
 
@@ -13,6 +12,7 @@ const fetcher = async ([url, token]: [string, string]) => {
  */
 export function useLocalModels(token: string, modelId?: number) {
   const base = process.env.NEXT_PUBLIC_API_BASE_URL;
+
   const key = token && modelId != null ? [`${base}/models/${modelId}/locals/`, token] : null;
 
   return useSWR(key, fetcher);

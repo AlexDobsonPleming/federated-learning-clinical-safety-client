@@ -38,17 +38,44 @@ Before you begin, ensure you have installed:
 
 Create a `.env.local` file in the project root with the following variables:
 
-```dotenv
-NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api
-```
-
-Adjust the URL to match your backend deployment.
-
 A sample env file has been provided to match the default settings in the Django backend
 
 ```bash
 cp .env.example .env.local
 ```
+
+Alternatively environment variables can be set with bash.
+
+#### NEXT_PUBLIC_API_BASE_URL
+```bash
+export NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api
+```
+Adjust the URL to match your backend deployment.
+
+#### NEXT_PUBLIC_SKIP_NGROK
+```bash
+export NEXT_PUBLIC_SKIP_NGROK=http://localhost:8000/api
+```
+This enables skipping the ngrok gateways for pre-flight. Ngrok is necessary for tunneling into vht-dev with https.
+
+#### Demo environment variables
+```bash
+export NEXT_PUBLIC_DEMO_MODE=true
+```
+Enable demo mode.
+
+```bash
+export NEXT_PUBLIC_DEMO_USERNAME=demo
+```
+Set a default username for demo purposes.
+
+```bash
+export NEXT_PUBLIC_DEMO_PASSWORD=demo123
+```
+Set a default password for demo purposes
+
+
+
 
 ---
 

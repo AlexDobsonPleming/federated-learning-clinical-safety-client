@@ -4,6 +4,8 @@
 
 This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js and Mantine UI.
 
+A [demo site](https://federated-learning-clinical-safety-client.vercel.app/) is provided.
+
 ---
 
 ## Prerequisites

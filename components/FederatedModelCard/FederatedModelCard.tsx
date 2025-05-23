@@ -1,11 +1,17 @@
 'use client';
 
 import { IconBrain } from '@tabler/icons-react';
-import { Card, Stack, ThemeIcon, Title } from '@mantine/core';
+import { Card, Center, Stack, ThemeIcon, Title } from '@mantine/core';
 import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 import { MetricLine } from './MetricLine';
+import { TrafficLight } from '@/components/FederatedModelCard/TrafficLight/TrafficLight';
 
 export function FederatedModelCard({ model }: { model: FederatedModel }) {
+
+  const accuracy = model.accuracy ?? 0;
+  let status: 'red' | 'yellow' | 'green' = 'red';
+  if (accuracy > 0.75) status = 'green';
+
   return (
     <Card shadow="sm" radius="md" withBorder p="lg" style={{ textAlign: 'center' }}>
       <ThemeIcon size={60} variant="light" radius="xl" style={{ margin: '0 auto 1rem' }}>
@@ -19,6 +25,10 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
         <MetricLine label="Generalisability" value={model.generalisability} />
         <MetricLine label="Privacy" value={model.privacy} />
       </Stack>
+      <Center  mt="sm">
+        <TrafficLight status={status} size={16} />
+      </Center>
+
     </Card>
   );
 }

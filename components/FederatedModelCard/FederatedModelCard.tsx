@@ -23,6 +23,7 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
         <MetricLine label="Accuracy" value={model.accuracy} />
         <MetricLine label="Generalisability" value={model.generalisability} />
         <MetricLine label="Privacy" value={model.privacy} />
+        <MetricLine label="Leakage Chance" value={model.leakage_chance} />
       </Stack>
       <Center mt="sm">
         <TrafficLight status={status} size={16} />

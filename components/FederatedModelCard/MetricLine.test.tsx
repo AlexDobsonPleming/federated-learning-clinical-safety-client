@@ -19,4 +19,10 @@ describe('MetricLine', () => {
     const el = screen.getByTestId('metric-foo');
     expect(el).toHaveTextContent('Foo: 12.3%');
   });
+
+  it('renders "N/A" when value is null', () => {
+    renderWithMantine(<MetricLine label="Privacy" value={null} />);
+    const el = screen.getByTestId('metric-privacy');
+    expect(el).toHaveTextContent('Privacy: N/A');
+  });
 });

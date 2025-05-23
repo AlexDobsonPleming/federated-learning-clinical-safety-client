@@ -1,7 +1,8 @@
 // components/LocalModelTable/LocalModel.ts
 export interface LocalModel {
   id: number;
-  name: string;
-  relatability: number | null;
-  source: string;
+  name: string | null;
+  privacy: number | null;
+  leakage_chance: number | null;
+  noise: number | null;
 }

@@ -1,7 +1,7 @@
 'use client';
 
 import { IconBrain } from '@tabler/icons-react';
-import { Card, Stack, Text, ThemeIcon, Title } from '@mantine/core';
+import { Card, Stack, ThemeIcon, Title } from '@mantine/core';
 import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 import { MetricLine } from './MetricLine';
 
@@ -17,11 +17,7 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
       <Stack gap="xs">
         <MetricLine label="Accuracy" value={model.accuracy} />
         <MetricLine label="Generalisability" value={model.generalisability} />
-        {model.security !== null ? (
-          <MetricLine label="Security" value={model.security} />
-        ) : (
-          <Text size="sm">Security: N/A</Text>
-        )}
+        <MetricLine label="Privacy" value={model.privacy} />
       </Stack>
     </Card>
   );

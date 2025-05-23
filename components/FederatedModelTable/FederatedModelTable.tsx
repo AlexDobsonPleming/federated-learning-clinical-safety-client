@@ -7,6 +7,10 @@ import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
 export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
   const router = useRouter();
 
+  function formatPercent(value: number | null | undefined): string {
+    return value != null ? `${(value * 100).toFixed(1)}%` : 'N/A';
+  }
+
   return (
     <Container size="xl" py="lg">
       <Stack gap="xl">
@@ -28,7 +32,7 @@ export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
               <Table.Th>Name</Table.Th>
               <Table.Th>Accuracy</Table.Th>
               <Table.Th>Generalisability</Table.Th>
-              <Table.Th>Security</Table.Th>
+              <Table.Th>Privacy</Table.Th>
             </Table.Tr>
           </Table.Thead>
 
@@ -40,11 +44,9 @@ export function FederatedModelTable({ models }: { models: FederatedModel[] }) {
                 style={{ cursor: 'pointer' }}
               >
                 <Table.Td>{model.name}</Table.Td>
-                <Table.Td>{(model.accuracy * 100).toFixed(1)}%</Table.Td>
-                <Table.Td>{(model.generalisability * 100).toFixed(1)}%</Table.Td>
-                <Table.Td>
-                  {model.security != null ? `${(model.security * 100).toFixed(1)}%` : 'N/A'}
-                </Table.Td>
+                <Table.Td>{formatPercent(model.accuracy)}</Table.Td>
+                <Table.Td>{formatPercent(model.generalisability)}</Table.Td>
+                <Table.Td>{formatPercent(model.privacy)}</Table.Td>
               </Table.Tr>
             ))}
           </Table.Tbody>

@@ -10,7 +10,7 @@ const mockModel: FederatedModel = {
   name: 'Test Model',
   accuracy: 0.95,
   generalisability: 0.9,
-  security: 0.85,
+  privacy: 0.85,
 };
 
 function renderWithProviders(ui: React.ReactElement) {

@@ -3,7 +3,7 @@
 import React from 'react';
 import { Tooltip, useMantineTheme } from '@mantine/core';
 
-interface TrafficLightProps {
+export interface TrafficLightProps {
   status: 'red' | 'yellow' | 'green';
   size?: number;
 }

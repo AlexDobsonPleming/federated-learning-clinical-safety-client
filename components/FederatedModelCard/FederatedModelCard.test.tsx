@@ -27,7 +27,7 @@ describe('FederatedModelCard component', () => {
     renderWithProviders(<FederatedModelCard model={mockModel} />);
     expect(screen.getByTestId('metric-accuracy')).toBeInTheDocument();
     expect(screen.getByTestId('metric-generalisability')).toBeInTheDocument();
-    expect(screen.getByTestId('metric-security')).toBeInTheDocument();
+    expect(screen.getByTestId('metric-privacy')).toBeInTheDocument();
   });
 
   test('renders an icon (svg)', () => {
@@ -35,9 +35,9 @@ describe('FederatedModelCard component', () => {
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
 
-  test('renders "Security: N/A" when security is null', () => {
-    const modelNoSecurity = { ...mockModel, security: null };
-    renderWithProviders(<FederatedModelCard model={modelNoSecurity} />);
-    expect(screen.getByText(/Security: N\/A/)).toBeInTheDocument();
+  test('renders "Privacy: N/A" when privacy is null', () => {
+    const modelNoPrivacyy = { ...mockModel, privacy: null };
+    renderWithProviders(<FederatedModelCard model={modelNoPrivacyy} />);
+    expect(screen.getByText(/Privacy: N\/A/)).toBeInTheDocument();
   });
 });

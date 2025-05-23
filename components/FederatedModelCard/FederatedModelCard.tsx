@@ -9,7 +9,9 @@ import { MetricLine } from './MetricLine';
 export function FederatedModelCard({ model }: { model: FederatedModel }) {
   const accuracy = model.accuracy ?? 0;
   let status: 'red' | 'yellow' | 'green' = 'red';
-  if (accuracy > 0.75) status = 'green';
+  if (accuracy > 0.75) {
+    status = 'green';
+  }
 
   return (
     <Card shadow="sm" radius="md" withBorder p="lg" style={{ textAlign: 'center' }}>

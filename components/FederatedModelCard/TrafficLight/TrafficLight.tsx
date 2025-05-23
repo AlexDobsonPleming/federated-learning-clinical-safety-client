@@ -1,14 +1,15 @@
 'use client';
 
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Tooltip, useMantineTheme } from '@mantine/core';
 
 export interface TrafficLightProps {
   status: 'red' | 'yellow' | 'green';
   size?: number;
+  tooltip?: ReactNode;
 }
 
-export const TrafficLight: React.FC<TrafficLightProps> = ({ status, size = 24 }) => {
+export const TrafficLight: React.FC<TrafficLightProps> = ({ status, size = 24, tooltip }) => {
   const theme = useMantineTheme();
 
   const colors = {
@@ -22,7 +23,7 @@ export const TrafficLight: React.FC<TrafficLightProps> = ({ status, size = 24 })
     status === light ? colors[light] : colors.off;
 
   return (
-    <Tooltip label={`Status: ${status}`}>
+    <Tooltip label={tooltip ?? `Status: ${status}`}>
       <div
         style={{
           display: 'flex',

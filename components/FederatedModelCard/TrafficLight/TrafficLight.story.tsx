@@ -7,13 +7,15 @@ const meta: Meta<TrafficLightProps> = {
   component: TrafficLight,
   decorators: [
     (Story) => (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '2rem',
-        height: '100vh',
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '2rem',
+          height: '100vh',
+        }}
+      >
         <Story />
       </div>
     ),

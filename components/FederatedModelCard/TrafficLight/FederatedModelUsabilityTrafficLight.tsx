@@ -1,5 +1,5 @@
-import { TrafficLight } from './TrafficLight';
 import type { ReactNode } from 'react';
+import { TrafficLight } from './TrafficLight';
 
 export interface FederatedModelUsabilityTrafficLightProps {
   accuracy?: number | null;
@@ -9,7 +9,7 @@ export interface FederatedModelUsabilityTrafficLightProps {
 }
 
 export function FederatedModelUsabilityTrafficLight(
-    props: FederatedModelUsabilityTrafficLightProps
+  props: FederatedModelUsabilityTrafficLightProps
 ) {
   const { accuracy, generalisability, epsilon, delta } = props;
 
@@ -71,17 +71,17 @@ export function FederatedModelUsabilityTrafficLight(
     reasons.push(`Privacy δ marginal (${delta})`);
   }
 
-  const tooltipContent: JSX.Element =
-      reasons.length > 0 ? (
-          <div>
-            {reasons.map((r, i) => (
-                <div key={i}>{r}</div>
-            ))}
-          </div>
-      ) : (
-          <>All metrics within safe thresholds</>
-      );
+  const tooltipContent: ReactNode = (
+    reasons.length > 0 ? (
+      <div>
+        {reasons.map((r, i) => (
+          <div key={i}>{r}</div>
+        ))}
+      </div>
+    ) : (
+      <>All metrics within safe thresholds</>
+    )
+  ) as ReactNode;
 
-
-  return <TrafficLight status={status} tooltip={tooltipContent as ReactNode} />;
+  return <TrafficLight status={status} tooltip={tooltipContent} />;
 }

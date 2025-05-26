@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { TrafficLight, TrafficLightProps } from './TrafficLight';
 
 const meta: Meta<TrafficLightProps> = {
-  title: 'Components/TrafficLight',
+  title: 'Components/TrafficLight/TrafficLight',
   component: TrafficLight,
   decorators: [
     (Story) => (

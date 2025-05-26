@@ -2,6 +2,8 @@
 
 [![Tests](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-client/actions/workflows/npm_test.yml/badge.svg)](https://github.com/AlexDobsonPleming/federated-learning-clinical-safety-client/actions/workflows/npm_test.yml)
 
+[![DOI](https://zenodo.org/badge/975458903.svg)](https://doi.org/10.5281/zenodo.15521146)
+
 This is the React front-end for the Federated Learning Clinical Safety Server, built with Next.js and Mantine UI.
 
 A [demo site](https://federated-learning-clinical-safety-client.vercel.app/) is provided.

@@ -94,7 +94,7 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
         {metrics.map(({ key, label, value }) => renderMetricLine(key, label, value))}
       </Stack>
 
-      <Center mt='sm'>
+      <Center mt="sm">
         <FederatedModelUsabilityTrafficLight
           accuracy={model.accuracy}
           generalisability={model.generalisability}

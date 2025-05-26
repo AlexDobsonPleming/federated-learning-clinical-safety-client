@@ -25,11 +25,8 @@ describe('FederatedModelCard component', () => {
     expect(screen.getByRole('heading', { level: 4 })).toHaveTextContent('Test Model');
   });
 
-
-
   test('renders an icon (svg)', () => {
     const { container } = renderWithProviders(<FederatedModelCard model={mockModel} />);
     expect(container.querySelector('svg')).toBeInTheDocument();
   });
-
 });

@@ -1,5 +1,5 @@
+import { ReactNode } from 'react';
 import { Text, Tooltip } from '@mantine/core';
-import {ReactNode} from "react";
 
 interface RawMetricLineProps {
   label: string;

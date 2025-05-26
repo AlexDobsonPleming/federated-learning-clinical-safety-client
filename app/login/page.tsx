@@ -25,8 +25,8 @@ export default function LoginPage() {
   const demoPassword = demoMode ? (process.env.NEXT_PUBLIC_DEMO_PASSWORD ?? '') : '';
 
   // 3) initialize your inputs with them if demoMode
-  const [username, setUsername] = useState(demoUsername);
-  const [password, setPassword] = useState(demoPassword);
+  const [username, setUsername] = useState<string>(demoUsername);
+  const [password, setPassword] = useState<string>(demoPassword);
   const [error, setError] = useState<string | null>(null);
 
   const { login } = useAuth();

@@ -21,10 +21,17 @@
     "plugins": [{ "name": "next" }],
     "types": ["node", "jest", "@testing-library/jest-dom"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "hooks/**/*.ts", ".storybook",                      // your Storybook config
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "hooks/**/*.ts",
+    ".storybook", // your Storybook config
     "**/*.stories.ts",
     "**/*.stories.tsx",
     "**/*.story.ts",
-    "**/*.story.tsx"],
+    "**/*.story.tsx"
+  ],
   "exclude": ["node_modules"]
 }

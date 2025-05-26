@@ -1,15 +1,18 @@
 import { TrafficLight } from './TrafficLight';
+import type { ReactNode } from 'react';
 
 export interface FederatedModelUsabilityTrafficLightProps {
-  accuracy: number;
-  generalisability: number;
-  epsilon: number;
-  delta: number;
+  accuracy?: number | null;
+  generalisability?: number | null;
+  epsilon?: number | null;
+  delta?: number | null;
 }
 
-export const FederatedModelUsabilityTrafficLight: React.FC<
-  FederatedModelUsabilityTrafficLightProps
-> = ({ accuracy, generalisability, epsilon, delta }) => {
+export function FederatedModelUsabilityTrafficLight(
+    props: FederatedModelUsabilityTrafficLightProps
+) {
+  const { accuracy, generalisability, epsilon, delta } = props;
+
   type TrafficStatus = 'green' | 'yellow' | 'red';
 
   let status: TrafficStatus = 'green';
@@ -23,7 +26,11 @@ export const FederatedModelUsabilityTrafficLight: React.FC<
     }
   };
 
-  if (accuracy < 0.75) {
+  // --- NULL / UNDEFINED GUARDS ---
+  if (accuracy == null) {
+    escalateStatus('red');
+    reasons.push('Accuracy not provided');
+  } else if (accuracy < 0.75) {
     escalateStatus('red');
     reasons.push(`Accuracy too low (${accuracy.toFixed(2)} < 0.75)`);
   } else if (accuracy < 0.85) {
@@ -31,7 +38,10 @@ export const FederatedModelUsabilityTrafficLight: React.FC<
     reasons.push(`Accuracy marginal (${accuracy.toFixed(2)})`);
   }
 
-  if (generalisability > 10) {
+  if (generalisability == null) {
+    escalateStatus('red');
+    reasons.push('Generalisability not provided');
+  } else if (generalisability > 10) {
     escalateStatus('red');
     reasons.push(`Generalisability too poor (${generalisability.toFixed(1)} pp > 10 pp)`);
   } else if (generalisability > 5) {
@@ -39,7 +49,10 @@ export const FederatedModelUsabilityTrafficLight: React.FC<
     reasons.push(`Generalisability marginal (${generalisability.toFixed(1)} pp)`);
   }
 
-  if (epsilon > 8) {
+  if (epsilon == null) {
+    escalateStatus('red');
+    reasons.push('Privacy ε not provided');
+  } else if (epsilon > 8) {
     escalateStatus('red');
     reasons.push(`Privacy ε too high (${epsilon.toFixed(2)} > 8)`);
   } else if (epsilon > 1) {
@@ -47,7 +60,10 @@ export const FederatedModelUsabilityTrafficLight: React.FC<
     reasons.push(`Privacy ε marginal (${epsilon.toFixed(2)})`);
   }
 
-  if (delta > 1e-3) {
+  if (delta == null) {
+    escalateStatus('red');
+    reasons.push('Privacy δ not provided');
+  } else if (delta > 1e-3) {
     escalateStatus('red');
     reasons.push(`Privacy δ too high (${delta})`);
   } else if (delta > 1e-5) {
@@ -55,16 +71,17 @@ export const FederatedModelUsabilityTrafficLight: React.FC<
     reasons.push(`Privacy δ marginal (${delta})`);
   }
 
-  const tooltipContent =
-    reasons.length > 0 ? (
-      <div>
-        {reasons.map((r, i) => (
-          <div key={i}>{r}</div>
-        ))}
-      </div>
-    ) : (
-      'All metrics within safe thresholds'
-    );
+  const tooltipContent: JSX.Element =
+      reasons.length > 0 ? (
+          <div>
+            {reasons.map((r, i) => (
+                <div key={i}>{r}</div>
+            ))}
+          </div>
+      ) : (
+          <>All metrics within safe thresholds</>
+      );
 
-  return <TrafficLight status={status} tooltip={tooltipContent} />;
-};
+
+  return <TrafficLight status={status} tooltip={tooltipContent as ReactNode} />;
+}

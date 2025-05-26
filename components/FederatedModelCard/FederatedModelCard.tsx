@@ -2,8 +2,11 @@
 
 import React from 'react';
 import { IconBrain } from '@tabler/icons-react';
-import { Card, Stack, Text, ThemeIcon, Title, Tooltip } from '@mantine/core';
+import {Card, Center, Stack, Text, ThemeIcon, Title, Tooltip} from '@mantine/core';
 import { FederatedModel } from '@/components/FederatedModelCard/FederatedModel';
+import {
+  FederatedModelUsabilityTrafficLight
+} from "@/components/FederatedModelCard/TrafficLight/FederatedModelUsabilityTrafficLight";
 
 // 1. Define your global thresholds and reason generators
 const globalCheckers = {
@@ -66,7 +69,7 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
 
     const isError = checker.isError(value);
     const isWarn = !isError && checker.isWarn(value);
-    const color = isError ? 'red' : isWarn ? 'yellow' : undefined;
+    const color = isError ? 'red' : isWarn ? 'orange' : undefined;
     const text = checker.format(value);
     const tooltip = isError || isWarn ? checker.reason(value) : undefined;
 
@@ -92,6 +95,10 @@ export function FederatedModelCard({ model }: { model: FederatedModel }) {
       <Stack gap="xs">
         {metrics.map(({ key, label, value }) => renderMetricLine(key, label, value))}
       </Stack>
+
+      <Center mt={"sm"}>
+      <FederatedModelUsabilityTrafficLight accuracy={model.accuracy} generalisability={model.generalisability} epsilon={model.privacy} delta={model.leakage_chance}/>
+      </Center>
     </Card>
   );
 }
